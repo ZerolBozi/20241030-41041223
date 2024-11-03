@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tribute.js 效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.css" />
+</head>
+
+<body>
+    <div class="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 mb-20">
+        <h1 class="text-3xl font-bold mb-6">tribute.js 效果</h1>
+
+        <a href="https://github.com/zurb/tribute" class="text-blue-600 hover:text-blue-800 underline"
+            target="_blank">tribute.js 官網</a>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">範例程式碼</h2>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                引入CDN
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-html">&lt;!-- 引入必要的腳本 --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.css" /&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                JS程式碼
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// 基本設定
+const tribute = new Tribute({
+    values: [
+        { key: 'Phil Heartman', value: 'pheartman' },
+        { key: 'Gordon Ramsey', value: 'gramsey' },
+        { key: 'Jordan Humphreys', value: 'jhumphreys' },
+    ],
+});
+
+// 綁定元素
+tribute.attach(document.getElementById('example'));</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">效果展示</h2>
+        <div class="bg-gray-100 p-8 rounded-lg mb-20 flex justify-center items-center">
+            <input type="text" id="example" class="w-full p-4 rounded-lg border border-gray-300"
+                placeholder="輸入@開始標記" />
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+
+        const tribute = new Tribute({
+            values: [
+                { key: 'Phil Heartman', value: 'pheartman' },
+                { key: 'Gordon Ramsey', value: 'gramsey' },
+                { key: 'Jordan Humphreys', value: 'jhumphreys' },
+            ],
+        });
+
+        tribute.attach(document.getElementById('example'));
+
+    </script>
+</body>
+
+</html>

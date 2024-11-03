@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>plyr 效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+</head>
+
+<body>
+    <div class="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 mb-20">
+        <h1 class="text-3xl font-bold mb-6">plyr 效果</h1>
+
+        <a href="https://plyr.io/" class="text-blue-600 hover:text-blue-800 underline" target="_blank">plyr 官網</a>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">範例程式碼</h2>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                引入CDN
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto">
+                <code class="language-html">&lt;!-- 引入必要的腳本 --&gt;
+&lt;link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" /&gt;
+&lt;script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                樣式語法
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto">
+                <code class="language-html">&lt;video id="player" playsinline controls&gt;
+    &lt;source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4"&gt;
+    &lt;source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">效果展示</h2>
+        <div class="bg-gray-100 p-8 rounded-lg mb-20 flex justify-center items-center" id="video-player">
+            <div class="w-full max-w-4xl">
+                <video id="player" class="w-full h-auto" playsinline controls>
+                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                        type="video/mp4">
+                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.webm"
+                        type="video/webm">
+                </video>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
