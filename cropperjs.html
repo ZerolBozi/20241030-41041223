@@ -27,12 +27,9 @@
         #resultImage {
             border-radius: 50%;
             width: 500px;
-            /* 增加結果圖片尺寸 */
             height: 500px;
-            /* 增加結果圖片尺寸 */
             display: none;
             object-fit: cover;
-            /* 確保圖片正確填充圓形區域 */
         }
 
         .cropper-view-box,
@@ -102,7 +99,7 @@ cropper = new Cropper(image, {
 
 document.querySelector('.crop-btn').addEventListener('click', function () {
     const canvas = cropper.getCroppedCanvas({
-        width: 500, // 增加畫布尺寸以獲得更高品質的結果
+        width: 500,
         height: 500
     });
 
@@ -145,6 +142,9 @@ document.querySelector('.crop-btn').addEventListener('click', function () {
     <script>
         hljs.highlightAll();
 
+    </script>
+
+    <script>
         window.addEventListener('DOMContentLoaded', function () {
             const image = document.getElementById('image');
             const resultImage = document.getElementById('resultImage');
@@ -173,7 +173,7 @@ document.querySelector('.crop-btn').addEventListener('click', function () {
 
             document.querySelector('.crop-btn').addEventListener('click', function () {
                 const canvas = cropper.getCroppedCanvas({
-                    width: 500, // 增加畫布尺寸以獲得更高品質的結果
+                    width: 500,
                     height: 500
                 });
 

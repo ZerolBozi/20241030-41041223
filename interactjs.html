@@ -9,20 +9,6 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <style>
-        .demo-container {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 6px;
-            margin: 20px 0;
-            min-height: 400px;
-        }
-
-        .code-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #666;
-        }
-
         h2 {
             color: #333;
             margin: 30px 0 20px 0;
@@ -128,39 +114,33 @@
 
         listeners: {
             // call this function on every dragmove event
-            move: dragMoveListener,
+            move(event) {
+                var target = event.target
+                var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+                var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+                target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+                target.setAttribute('data-x', x)
+                target.setAttribute('data-y', y)
+            },
 
             // call this function on every dragend event
             end(event) {
-                var textEl = event.target.querySelector('p')
+                var target = event.target
 
-                textEl && (textEl.textContent =
-                    'moved a distance of ' +
+                target.textContent = 'moved a distance of ' +
                     (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
                         Math.pow(event.pageY - event.y0, 2) | 0))
-                        .toFixed(2) + 'px')
+                        .toFixed(2) + 'px'
             }
         }
-    })
-
-function dragMoveListener(event) {
-    var target = event.target
-    // keep the dragged position in the data-x/data-y attributes
-    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-
-    // translate the element
-    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-
-    // update the posiion attributes
-    target.setAttribute('data-x', x)
-    target.setAttribute('data-y', y)
-}</code></pre>
+    })</code></pre>
         </div>
 
         <h2 class="text-2xl font-semibold mt-8 mb-4">範例效果</h2>
 
-        <div class="demo-container">
+        <div class="bg-gray-100 p-4 rounded-b-lg">
             <div class="resize-drag">
                 Drag to move Resize from edges
             </div>
@@ -232,34 +212,28 @@ function dragMoveListener(event) {
 
                 listeners: {
                     // call this function on every dragmove event
-                    move: dragMoveListener,
+                    move(event) {
+                        var target = event.target
+                        var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
+                        var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
+
+                        target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
+
+                        target.setAttribute('data-x', x)
+                        target.setAttribute('data-y', y)
+                    },
 
                     // call this function on every dragend event
                     end(event) {
-                        var textEl = event.target.querySelector('p')
+                        var target = event.target
 
-                        textEl && (textEl.textContent =
-                            'moved a distance of ' +
+                        target.textContent = 'moved a distance of ' +
                             (Math.sqrt(Math.pow(event.pageX - event.x0, 2) +
                                 Math.pow(event.pageY - event.y0, 2) | 0))
-                                .toFixed(2) + 'px')
+                                .toFixed(2) + 'px'
                     }
                 }
             })
-
-        function dragMoveListener(event) {
-            var target = event.target
-            // keep the dragged position in the data-x/data-y attributes
-            var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-            var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-
-            // translate the element
-            target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-
-            // update the posiion attributes
-            target.setAttribute('data-x', x)
-            target.setAttribute('data-y', y)
-        }
     </script>
 </body>
 

@@ -15,12 +15,6 @@
             background-color: #0d6efd;
             margin: 10px;
         }
-
-        .code-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #666;
-        }
     </style>
 </head>
 
@@ -47,10 +41,7 @@
             <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
                 JS程式碼
             </div>
-            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// 基本動畫設定
-import anime from 'animejs';
-
-// 創建一個基本動畫
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// 創建一個基本動畫
 anime({
     targets: '.box1',
     translateX: 250,
@@ -113,8 +104,9 @@ anime({
 
     <script>
         hljs.highlightAll();
+    </script>
 
-        // 基本動畫設定
+    <script>
         anime({
             targets: '.box1',
             translateX: 250,
@@ -123,13 +115,11 @@ anime({
             easing: 'easeInOutQuad'
         });
 
-        // 創建時間軸動畫
         const timeline = anime.timeline({
             easing: 'easeOutExpo',
             duration: 750
         });
 
-        // 添加動畫序列
         timeline
             .add({
                 targets: '.box2',
@@ -148,7 +138,6 @@ anime({
                 loop: true
             });
 
-        // 創建無限循環動畫
         anime({
             targets: '.box3',
             translateX: 250,

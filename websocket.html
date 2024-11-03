@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket 效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+    <style>
+        .fixed-height-container {
+            height: 800px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 mb-20">
+        <h1 class="text-3xl font-bold mb-6">WebSocket 傳輸效果</h1>
+
+        <a href="https://developer.mozilla.org/zh-TW/docs/Web/API/WebSocket"
+            class="text-blue-600 hover:text-blue-800 underline" target="_blank">WebSocket 官網</a>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">範例程式碼</h2>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                引入CDN
+            </div>
+            <pre
+                class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-html">&lt;!-- 由於 WebSocket 是 HTML5 的一部分，因此不需要引入任何外部庫。 --&gt;</code></pre>
+
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                JS程式碼
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// 建立 WebSocket 連線
+ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1d');
+
+// ws事件
+ws.onopen = () => {
+    console.log('WebSocket 連線已建立');
+};
+
+ws.onmessage = (event) => {
+    console.log('接收資料:', event.data);
+};
+
+ws.onclose = () => {
+    console.log('WebSocket 連線已關閉');
+};
+
+ws.onerror = (error) => {
+    console.error('WebSocket 錯誤:', error.message);
+};</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">效果展示</h2>
+        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+            <div class="mb-4">
+                <div class="font-semibold text-lg mb-2">Binance BTCUSDT 1天K線資料</div>
+                <div class="text-gray-600">ws地址: wss://stream.binance.com:9443/ws/btcusdt@kline_1d</div>
+            </div>
+            <button id="connectBtn" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+                連線
+            </button>
+            <button id="disconnectBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded" disabled>
+                斷開連線
+            </button>
+            <button id="clearBtn" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                清空輸出
+            </button>
+            <div class="bg-gray-100 p-8 rounded-lg">
+                <div class="mb-4">
+                    <div class="font-semibold text-lg mb-2">連線狀態：</div>
+                    <div id="status" class="text-gray-600">未連線</div>
+                </div>
+
+                <div class="font-semibold text-lg mb-2">接收資料：</div>
+                <div id="data-container" class="bg-white p-4 rounded-lg fixed-height-container"></div>
+            </div>
+        </div>
+        <script src="navbar.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+
+        <script>
+            hljs.highlightAll();
+        </script>
+
+        <script>
+            let ws = null;
+            const connectBtn = document.getElementById('connectBtn');
+            const disconnectBtn = document.getElementById('disconnectBtn');
+            const statusDiv = document.getElementById('status');
+            const dataContainer = document.getElementById('data-container');
+
+            function updateButtonState(isConnected) {
+                connectBtn.disabled = isConnected;
+                disconnectBtn.disabled = !isConnected;
+            }
+
+            function formatData(data) {
+                try {
+                    const jsonData = JSON.parse(data);
+                    return `<pre class="whitespace-pre-wrap break-words">${JSON.stringify(jsonData, null, 2)}</pre>`;
+                } catch (e) {
+                    return `<div class="whitespace-pre-wrap break-words">${data}</div>`;
+                }
+            }
+
+            function appendData(data) {
+                const formattedData = formatData(data);
+                const timeStamp = new Date().toLocaleTimeString();
+                const entry = document.createElement('div');
+                entry.className = 'mb-4 pb-4 border-b border-gray-200';
+                entry.innerHTML = `
+            <div class="text-sm text-gray-500 mb-1">${timeStamp}</div>
+            ${formattedData}
+            `;
+                if (dataContainer.firstChild) {
+                    dataContainer.insertBefore(entry, dataContainer.firstChild);
+                } else {
+                    dataContainer.appendChild(entry);
+                }
+                dataContainer.scrollTop = 0;
+            }
+
+            connectBtn.addEventListener('click', () => {
+                try {
+                    ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@kline_1d');
+
+                    ws.onopen = () => {
+                        statusDiv.textContent = '已連線';
+                        statusDiv.className = 'text-green-600';
+                        updateButtonState(true);
+                        appendData('WebSocket連線已建立');
+                    };
+
+                    ws.onmessage = (event) => {
+                        appendData(event.data);
+                    };
+
+                    ws.onclose = () => {
+                        statusDiv.textContent = '已斷開連線';
+                        statusDiv.className = 'text-red-600';
+                        updateButtonState(false);
+                        appendData('WebSocket連線已關閉');
+                        ws = null;
+                    };
+
+                    ws.onerror = (error) => {
+                        statusDiv.textContent = '連線錯誤';
+                        statusDiv.className = 'text-red-600';
+                        appendData(`WebSocket錯誤: ${error.message}`);
+                    };
+                } catch (error) {
+                    statusDiv.textContent = '連線失敗';
+                    statusDiv.className = 'text-red-600';
+                    appendData(`連線發生錯誤: ${error.message}`);
+                }
+            });
+
+            disconnectBtn.addEventListener('click', () => {
+                if (ws) {
+                    ws.close();
+                }
+            });
+
+            clearBtn.addEventListener('click', () => {
+                dataContainer.innerHTML = '';
+            });
+        </script>
+</body>
+
+</html>

@@ -12,12 +12,6 @@
         h2 {
             color: #333;
         }
-
-        .code-title {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #666;
-        }
     </style>
 </head>
 
@@ -36,8 +30,7 @@
             <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
                 引入CDN
             </div>
-            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto">
-                <code class="language-html">&lt;!-- 引入必要的腳本 --&gt; 
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-html">&lt;!-- 引入必要的腳本 --&gt; 
 &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"&gt;&lt;/script&gt;</code></pre>
         </div>
 
@@ -46,10 +39,7 @@
                 JS程式碼
             </div>
             <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto">
-<code class="language-javascript">// Three.js 基本設定
-import * as THREE from 'three';
-
-// 建立場景
+<code class="language-javascript">// 建立場景
 const scene = new THREE.Scene();
 
 // 建立相機
@@ -90,10 +80,10 @@ animate();</code></pre>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 
     <script>
-        // 初始化 highlight.js
         hljs.highlightAll();
+    </script>
 
-        // Three.js 示例代碼的實際實現
+    <script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
