@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <nav class="bg-white px-4 mb-6 shadow-sm">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-center h-16">
-                <a href="/index.html" class="text-xl font-semibold text-gray-800">JS 套件介紹</a>
+                <a href="index.html" class="text-xl font-semibold text-gray-800">JS 套件介紹</a>
                 
                 <!-- Mobile menu button -->
                 <div class="flex md:hidden">
@@ -17,32 +17,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 <!-- Desktop menu -->
                 <div class="hidden md:flex md:items-center md:space-x-4">
-                    <a href="/thressjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Three.js</a>
-                    <a href="/animejs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">anime.js</a>
-                    <a href="/tailwind.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Tailwind CSS</a>
-                    <a href="/interactjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">interact.js</a>
-                    <a href="/highlightjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">highlight.js</a>
-                    <a href="/typedjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">typed.js</a>
-                    <a href="/chart.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">lightweight-charts</a>
-                    <a href="/cropperjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Cropper.js</a>
-                    <a href="/plyr.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Plyr</a>
-                    <a href="/tributejs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Tribute.js</a>
+                    <a href="thressjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Three.js</a>
+                    <a href="animejs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">anime.js</a>
+                    <a href="tailwind.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Tailwind CSS</a>
+                    <a href="interactjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">interact.js</a>
+                    <a href="highlightjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">highlight.js</a>
+                    <a href="typedjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">typed.js</a>
+                    <a href="chart.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">lightweight-charts</a>
+                    <a href="cropperjs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Cropper.js</a>
+                    <a href="plyr.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Plyr</a>
+                    <a href="tributejs.html" class="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm">Tribute.js</a>
                 </div>
             </div>
 
             <!-- Mobile menu -->
             <div class="hidden md:hidden" id="mobile-menu">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="/thressjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Three.js</a>
-                    <a href="/animejs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">anime.js</a>
-                    <a href="/tailwind.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Tailwind CSS</a>
-                    <a href="/interactjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">interact.js</a>
-                    <a href="/highlightjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">highlight.js</a>
-                    <a href="/typedjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">typed.js</a>
-                    <a href="/chart.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">lightweight-charts</a>
-                    <a href="/cropperjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Cropper.js</a>
-                    <a href="/plyr.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Plyr</a>
-                    <a href="/tributejs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Tribute.js</a>
+                    <a href="thressjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Three.js</a>
+                    <a href="animejs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">anime.js</a>
+                    <a href="tailwind.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Tailwind CSS</a>
+                    <a href="interactjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">interact.js</a>
+                    <a href="highlightjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">highlight.js</a>
+                    <a href="typedjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">typed.js</a>
+                    <a href="chart.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">lightweight-charts</a>
+                    <a href="cropperjs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Cropper.js</a>
+                    <a href="plyr.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Plyr</a>
+                    <a href="tributejs.html" class="block text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base">Tribute.js</a>
                 </div>
             </div>
         </div>
