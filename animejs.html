@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anime.js 動畫效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <style>
+        .animation-box {
+            width: 50px;
+            height: 50px;
+            background-color: #0d6efd;
+            margin: 10px;
+        }
+
+        .code-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 mb-20">
+        <h1 class="text-3xl font-bold mb-6">anime.js 動畫效果</h1>
+
+        <a href="https://animejs.com/" class="text-blue-600 hover:text-blue-800 underline" target="_blank">anime.js
+            官網</a>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">範例程式碼</h2>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                引入CDN
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-html">&lt;!-- 引入必要的腳本 --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                JS程式碼
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// 基本動畫設定
+import anime from 'animejs';
+
+// 創建一個基本動畫
+anime({
+    targets: '.box1',
+    translateX: 250,
+    rotate: '1turn',
+    duration: 800,
+    easing: 'easeInOutQuad'
+});
+
+// 創建時間軸動畫
+const timeline = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 750
+});
+
+// 添加動畫序列
+timeline
+    .add({
+        targets: '.box2',
+        scale: [0, 1],
+        opacity: [0, 1]
+    })
+    .add({
+        targets: '.box2',
+        translateX: 250,
+        rotate: 360
+    })
+    .add({
+        targets: '.box2',
+        translateY: [-50, 50],
+        direction: 'alternate',
+        loop: true
+    });
+
+// 創建無限循環動畫
+anime({
+    targets: '.box3',
+    translateX: 250,
+    translateY: [-50, 50],
+    backgroundColor: ['#0d6efd', '#dc3545'],
+    borderRadius: ['0%', '50%'],
+    easing: 'easeInOutQuad',
+    direction: 'alternate',
+    loop: true,
+    duration: 1500
+});</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">效果展示</h2>
+        <div class="bg-gray-100 p-8 rounded-lg mb-20">
+            <div class="animation-box box1 w-16 h-16 bg-blue-500"></div>
+            <div class="animation-box box2 w-16 h-16 bg-blue-500 mt-8"></div>
+            <div class="animation-box box3 w-16 h-16 bg-blue-500 mt-8"></div>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+        hljs.highlightAll();
+
+        // 基本動畫設定
+        anime({
+            targets: '.box1',
+            translateX: 250,
+            rotate: '1turn',
+            duration: 800,
+            easing: 'easeInOutQuad'
+        });
+
+        // 創建時間軸動畫
+        const timeline = anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+        });
+
+        // 添加動畫序列
+        timeline
+            .add({
+                targets: '.box2',
+                scale: [0, 1],
+                opacity: [0, 1]
+            })
+            .add({
+                targets: '.box2',
+                translateX: 250,
+                rotate: 360
+            })
+            .add({
+                targets: '.box2',
+                translateY: [-50, 50],
+                direction: 'alternate',
+                loop: true
+            });
+
+        // 創建無限循環動畫
+        anime({
+            targets: '.box3',
+            translateX: 250,
+            translateY: [-50, 50],
+            backgroundColor: ['#0d6efd', '#dc3545'],
+            borderRadius: ['0%', '50%'],
+            easing: 'easeInOutQuad',
+            direction: 'alternate',
+            loop: true,
+            duration: 1500
+        });
+    </script>
+</body>
+
+</html>

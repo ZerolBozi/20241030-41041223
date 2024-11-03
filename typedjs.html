@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typed.js 效果</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <style>
+        .demo-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            min-height: 400px;
+        }
+
+        h2 {
+            color: #333;
+            margin: 30px 0 20px 0;
+        }
+
+        #element {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container"></div>
+
+    <div class="max-w-7xl mx-auto px-4 mt-8 mb-20">
+        <h1 class="text-3xl font-bold mb-6">typed.js 互動效果</h1>
+
+        <a href="https://mattboldt.com/demos/typed-js/" class="text-blue-600 hover:text-blue-800 underline"
+            target="_blank">typed.js 官網</a>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">範例程式碼</h2>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                引入CDN
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-html">&lt;!-- 引入必要的腳本 --&gt;
+&lt;script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="mb-4">
+            <div class="bg-gray-800 text-white text-sm py-2 px-4 rounded-t-lg">
+                JS程式碼
+            </div>
+            <pre class="bg-gray-100 p-4 rounded-b-lg overflow-x-auto"><code class="language-javascript">// typed.js 基本設定
+var typed = new Typed('#element', {
+    strings: ["Typed.js is a JavaScript library.", "It tyops out", "It types out sentences.", "And then deletes them.", "Try it out!"],
+    typeSpeed: 30,
+});</code></pre>
+        </div>
+
+        <h2 class="text-2xl font-semibold mt-8 mb-4">效果展示</h2>
+        <div class="demo-container">
+            <span id="element"></span>
+        </div>
+
+
+        <script src="navbar.js"></script>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+
+        <script>
+            hljs.highlightAll();
+
+            var typed = new Typed('#element', {
+                strings: ["Typed.js is a JavaScript library.", "It tyops out", "It types out sentences.", "And then deletes them.", "Try it out!"],
+                typeSpeed: 30,
+            });
+        </script>
+</body>
+
+</html>
